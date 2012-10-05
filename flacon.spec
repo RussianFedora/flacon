@@ -12,6 +12,7 @@ BuildRequires:  PyQt4-devel
 BuildRequires:  python-chardet
 BuildRequires:  shntool
 BuildRequires:  qt-devel
+BuildRequires:  desktop-file-utils
 
 BuildArch:      noarch
 
@@ -34,7 +35,7 @@ make
 %install
 make install DESTDIR=%{buildroot}
 %find_lang %{name} --with-qt
-desktop-file-validate %{buildroot}/%{_datadir}/applications/%{name}.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %post
 /usr/bin/update-desktop-database &> /dev/null || 
