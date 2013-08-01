@@ -1,6 +1,6 @@
 Name:           flacon
 Version:        0.8.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Split Compressed Audio CD Image to Tracks
 
 License:        GPLv3
@@ -30,10 +30,10 @@ sed -i -e "s|LRELEASE    = lrelease|LRELEASE    = lrelease-qt4|" "Makefile";
 
 %build
 make clean
-make
+make %{?_smp_mflags}
 
 %install
-make install DESTDIR=%{buildroot}
+%make_install
 %find_lang %{name} --with-qt
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
 
@@ -59,6 +59,10 @@ fi
 
 
 %changelog
+* Thu Aug 01 2013 Vasiliy N. Glazov <vascom2@gmail.com> - 0.8.0-2.R
+- corrected make flags
+- use more macros
+
 * Fri May 31 2013 Vasiliy N. Glazov <vascom2@gmail.com> 0.8.0-1.R
 - update to 0.8.0
 
