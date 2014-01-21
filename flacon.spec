@@ -1,5 +1,5 @@
 Name:           flacon
-Version:        0.9.2
+Version:        0.9.3
 Release:        1%{?dist}
 Summary:        Split Compressed Audio CD Image to Tracks
 
@@ -54,6 +54,9 @@ fi
 
 
 %changelog
+* Tue Jan 21 2014 Vasiliy N. Glazov <vascom2@gmail.com> 0.9.3-1.R
+- update to 0.9.3
+
 * Thu Jan 09 2014 Vasiliy N. Glazov <vascom2@gmail.com> 0.9.2-1.R
 - update to 0.9.2
 
