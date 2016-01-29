@@ -1,43 +1,39 @@
-Name:          flacon
-Version:       1.2.0
-Release:       1%{?dist}
-Summary:       Split Compressed Audio CD Image to Tracks
+Name:           flacon
+Version:        2.0.0
+Release:        1%{?dist}
+Summary:        Audio File Encoder
 
-License:       LGPLv2+
-URL:           http://flacon.github.io/
-Source0:       https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz
+License:        LGPLv2+
+URL:            http://flacon.github.io/
+Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz
 
-BuildRequires: cmake
-BuildRequires: pkgconfig(Qt5Widgets)
-BuildRequires: pkgconfig(Qt5Network)
-BuildRequires: qt5-qttools-devel
-BuildRequires: uchardet-devel
-# check
-BuildRequires: /usr/bin/desktop-file-validate
+BuildRequires:  cmake
+BuildRequires:  /usr/bin/desktop-file-validate
+BuildRequires:  qt5-qtbase-devel
+BuildRequires:  qt5-linguist
+BuildRequires:  uchardet-devel
 
-Requires:      shntool
-Requires:      faac
-Requires:      flac
-Requires:      lame
-Requires:      mac
-Requires:      mp3gain
-Requires:      opus-tools
-Requires:      vorbis-tools
-Requires:      vorbisgain
-Requires:      wavpack
+Requires:       flac
+Requires:       opus-tools
+Requires:       shntool
+Requires:       vorbis-tools
+Requires:       vorbisgain
+Requires:       wavpack
+
+Recommends:     faac
+Recommends:     lame
+Recommends:     mac
+Recommends:     mp3gain
 
 %description
-Flacon extracts individual tracks from one big audio file containing
-the entire album of music and saves them as separate audio files. To do
-this, it uses information from the appropriate CUE file. Besides, Flacon
-makes it possible to conveniently revise or specify tags both for all
-tracks at once or for each tag separately.
+Flacon extracts individual tracks from one big audio file containing the entire
+album of music and saves them as separate audio files.
 
 %prep
-%setup -q
+%autosetup
 
 %build
-%cmake . -DBUILD_TESTS=Yes
+%cmake -DBUILD_TESTS=Yes .
 %make_build
 
 %install
@@ -71,6 +67,9 @@ fi
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+* Fri Jan 29 2016 Maxim Orlov <murmansksity@gmail.com> 2.0.0-1.R
+- update to 2.0.0
+
 * Wed Sep 23 2015 Maxim Orlov <murmansksity@gmail.com> 1.2.0-1.R
 - update to 1.2.0
 
