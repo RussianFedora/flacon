@@ -1,5 +1,5 @@
 Name:           flacon
-Version:        2.0.0
+Version:        2.0.1
 Release:        1%{?dist}
 Summary:        Audio File Encoder
 
@@ -67,6 +67,9 @@ fi
 %{_mandir}/man1/%{name}.1.*
 
 %changelog
+* Sun Jan 31 2016 Maxim Orlov <murmansksity@gmail.com> 2.0.1-1.R
+- update to 2.0.1
+
 * Fri Jan 29 2016 Maxim Orlov <murmansksity@gmail.com> 2.0.0-1.R
 - update to 2.0.0
 
